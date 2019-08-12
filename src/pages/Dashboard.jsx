@@ -1,11 +1,11 @@
 import React from 'react'
-import Chart from '../componets/Chart'
+import Chart from '../components/Chart'
 
-export default function Dashboard ({}) {
+export default function Dashboard () {
 
     return (
     <section>
-
+        <Chart />
     </section>
     )
 }
