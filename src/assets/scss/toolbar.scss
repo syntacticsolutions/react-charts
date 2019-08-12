@@ -1,19 +1,23 @@
 nav.responsive-toolbar {
-    background: #333333;
+    background: $carboncopy;
     height: 60px;
     width: 100%;
     position: fixed;
-    box-shadow: 1px 2px 2px 1px #CCC;
+    box-shadow: 1px 2px 2px 1px $framing;
+
+    & ~ * {
+        padding-top: 60px;
+    }
 
     ul {
-        background: #333333;
+        background: $carboncopy;
         display: flex;
         margin-block-start: 0;
         margin-block-end: 0;
         padding-inline-start: 0;
         height: 100%;
         align-items: center;
-        box-shadow: 1px 2px 2px 1px #CCC;
+        box-shadow: 1px 2px 2px 1px $framing;
 
         figure {
             margin-block-start: 0;
@@ -33,7 +37,7 @@ nav.responsive-toolbar {
         }
 
         a {
-            color: white;
+            color: $background;
             text-decoration: none;
             display: flex;
             flex-direction: row-reverse;

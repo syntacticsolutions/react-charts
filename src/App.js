@@ -31,7 +31,7 @@ function App() {
       />
 			<Router>
 				<Home path="/" />
-				<Dashboard path="/dashboard" />
+				<Dashboard path="/analytics" />
 			</Router>
     </div>
   );

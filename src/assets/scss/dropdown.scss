@@ -1,0 +1,8 @@
+.dropdown {
+    border: 1px solid $framing;
+    box-shadow: 1px 2px 1px 2px $framing;
+    min-width: 200px;
+    min-height: 100px;
+    position: absolute;
+    background: $background;
+}

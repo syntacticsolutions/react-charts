@@ -17,6 +17,7 @@ function ResponsiveNavigation ({ navLinks, background, hoverBackground, linkColo
                 </figure>
                 {navLinks.map((link, index) => 
                     <li
+                        key={index}
                         onMouseEnter={ () => setHoverIndex(index) }
                         onMouseLeave={ () => setHoverIndex(-1) }
                         style={{ background: hoverIndex === index ? (hoverBackground || '#999') : '' }}
@@ -26,7 +27,7 @@ function ResponsiveNavigation ({ navLinks, background, hoverBackground, linkColo
                             style={{ color: linkColor }}
                         >
                             { link.text }
-                            <i class={link.icon} />
+                            <i className={link.icon} />
                         </Link>
                     </li>    
                 )}

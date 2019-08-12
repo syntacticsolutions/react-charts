@@ -1,0 +1,19 @@
+section.chart {
+    border: 1px solid $framing;
+    border-radius: 4px;
+    padding: 10px;
+
+    .chart-header-container {
+        color: $carboncopy;
+        display: flex;
+        justify-content: space-between;
+
+        i {
+            cursor: pointer;
+        }
+    }
+
+    .options-container {
+        position: relative;
+    }
+}

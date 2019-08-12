@@ -5,7 +5,8 @@ export default function Dashboard () {
 
     return (
     <section>
-        <Chart />
+        <Chart>
+        </Chart>
     </section>
     )
 }
