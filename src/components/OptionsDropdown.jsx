@@ -1,7 +1,7 @@
 import React from 'react'
 import Dropdown from './Dropdown'
 
-export default ({ children, options, visible }) => {
+export default ({ children, options, visible, cb }) => {
 
     let optionMap = Object.entries(options)
 
@@ -9,8 +9,9 @@ export default ({ children, options, visible }) => {
         <Dropdown
             anchor={ children }
             visible={ visible }
+            cb={cb}
         >
-            <ul>
+            <ul className="options-list">
                 {   optionMap.map(([text, meta]) => 
                         <li
                             key={text}

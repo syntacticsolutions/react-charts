@@ -40,6 +40,7 @@ export default function Chart ({ children, config = {
                     <OptionsDropdown
                         options={ options }
                         visible={ optionsVisible }
+                        cb={ () => setOptionsVisible(false)}
                     >
                         <i
                             className="ion-ios-more"
