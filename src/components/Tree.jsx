@@ -3,14 +3,7 @@ import echarts from 'echarts'
 import Chart from './Chart'
 const data = require('../assets/fixtures/sankey.json')
 
-export default () => {
-    let config = {
-        title: 'Repo Hierarchy',
-        type: 'Tree',
-        height: '600px',
-        width: '90%',
-        left: '10%'
-    }
+export default ({ config }) => {
 
     let option = {
         tooltip: {

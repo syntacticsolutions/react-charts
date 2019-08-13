@@ -2,13 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import echarts from 'echarts'
 import Chart from './Chart'
 
-export default () => {
-    let config = {
-        title: 'Total Open Source vs Enterprise Repos',
-        type: 'StackedLine',
-        height: '400px',
-        width: '45%'
-    }
+export default ({ config }) => {
 
     let option = {
         tooltip: {

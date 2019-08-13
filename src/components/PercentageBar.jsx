@@ -2,13 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 import echarts from 'echarts'
 import Chart from './Chart'
 
-export default () => {
-    let config = {
-        title: 'EP Managed VS Total Devices',
-        type: 'Pie',
-        height: '400px',
-        width: '45%'
-    }
+export default ({ config }) => {
 
     let option = {
         color: ['#546ef3', '#a6cb09'],
