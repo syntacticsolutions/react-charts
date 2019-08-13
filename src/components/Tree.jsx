@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useState} from 'react'
 import echarts from 'echarts'
 import Chart from './Chart'
-const data = require('../assets/fixtures/sankey.json')
+const data = require('../assets/fixtures/repo_hierarchy.json')
 
 export default ({ config }) => {
 
