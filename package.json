@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@reach/router": "^1.2.1",
+    "echarts": "^4.2.1",
     "node-sass": "^4.12.0"
   }
 }

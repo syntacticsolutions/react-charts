@@ -3,11 +3,18 @@
         list-style-type: none;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 10px 20px;
+        color: $light-copy;
 
         &:hover {
-            background: #ddd;
+            // background: #dfdfdf;
             cursor: pointer;
+            color: $primary;
+        }
+
+        i {
+            font-size: 20px;
         }
     }
 }

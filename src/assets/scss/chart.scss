@@ -10,6 +10,9 @@ section.chart {
 
         i {
             cursor: pointer;
+            &:hover {
+                color: $primary;
+            }
         }
     }
 

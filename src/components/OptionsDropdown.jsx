@@ -9,7 +9,7 @@ export default ({ children, options, visible, cb }) => {
         <Dropdown
             anchor={ children }
             visible={ visible }
-            cb={cb}
+            cb={ cb }
         >
             <ul className="options-list">
                 {   optionMap.map(([text, meta]) => 

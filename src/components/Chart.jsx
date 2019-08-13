@@ -4,6 +4,7 @@ import OptionsDropdown from './OptionsDropdown'
 export default function Chart ({ children, config = { 
         title: 'Repo Hierarchy',
         options: 'default',
+        type: 'sankey'
 
     } 
 }) {

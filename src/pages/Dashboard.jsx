@@ -1,12 +1,11 @@
 import React from 'react'
-import Chart from '../components/Chart'
+import Tree from '../components/Tree'
 
 export default function Dashboard () {
 
     return (
     <section>
-        <Chart>
-        </Chart>
+        <Tree />
     </section>
     )
 }
