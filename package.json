@@ -30,6 +30,8 @@
   },
   "devDependencies": {
     "@reach/router": "^1.2.1",
+    "axios": "^0.19.0",
+    "axios-mock-adapter": "^1.17.0",
     "echarts": "^4.2.1",
     "node-sass": "^4.12.0"
   }
