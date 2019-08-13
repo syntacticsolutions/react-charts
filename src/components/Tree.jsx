@@ -5,12 +5,12 @@ const data = require('../assets/fixtures/sankey.json')
 
 export default () => {
     let config = {
-        type: 'sankey',
-        height: '800px',
-        width: '600px'
+        title: 'Repo Hierarchy',
+        type: 'Tree',
+        height: '600px',
+        width: '90%',
+        left: '10%'
     }
-
-    let { height, width } = config
 
     let option = {
         tooltip: {
@@ -24,7 +24,7 @@ export default () => {
                 data: [data],
 
                 top: '1%',
-                left: '7%',
+                left: config.left,
                 bottom: '1%',
                 right: '20%',
 
@@ -72,8 +72,8 @@ export default () => {
 
 
     return (
-        <Chart>
-            <div className="chart" ref={chart} style={{ height, width }}></div>
+        <Chart config={config}>
+            <div className="chart" ref={chart}></div>
         </Chart>
     )
 }

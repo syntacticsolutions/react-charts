@@ -1,13 +1,9 @@
 import React, { useState } from 'react'
 import OptionsDropdown from './OptionsDropdown'
 
-export default function Chart ({ children, config = { 
-        title: 'Repo Hierarchy',
-        options: 'default',
-        type: 'sankey'
+export default function Chart ({ children, config }) {
 
-    } 
-}) {
+    const { height, width } = config
 
     const [optionsVisible, setOptionsVisible] = useState(false)
 
@@ -15,7 +11,7 @@ export default function Chart ({ children, config = {
         'FullScreen': {
             icon: 'ion-ios-expand',
             cb: () => {
-
+                // TODO
             }
         },
         'Save as Image': {
@@ -27,21 +23,21 @@ export default function Chart ({ children, config = {
         'Export to CSV': {
             icon: 'ion-ios-filing',
             cb: () => {
-
+                // TODO
             }
         }
     }
 
 
     return (
-        <section className="chart">
+        <section className="chart" style={{ height, width }}>
             <section className="chart-header-container">
                 <span>{ config.title }</span>
                 <span className="options-container">
                     <OptionsDropdown
                         options={ options }
                         visible={ optionsVisible }
-                        cb={ () => setOptionsVisible(false)}
+                        cb={ () => setOptionsVisible(false) }
                     >
                         <i
                             className="ion-ios-more"

@@ -4,6 +4,7 @@ nav.responsive-toolbar {
     width: 100%;
     position: fixed;
     box-shadow: 1px 2px 2px 1px $framing;
+    z-index: 9;
 
     & ~ * {
         padding-top: 60px;
