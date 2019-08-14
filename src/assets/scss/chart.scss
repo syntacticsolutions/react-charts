@@ -5,10 +5,13 @@ section.chart {
     padding-bottom: 15px;
     margin-left: 5px;
     margin-right: 5px;
+    min-width: 320px;
+    margin-bottom: 20px;
 
     .chart-header-container {
         color: $carboncopy;
         display: flex;
+        text-align: left;
         justify-content: space-between;
         // border-bottom: 1px solid $framing;
         padding: 10px 20px;
@@ -30,3 +33,9 @@ section.chart {
         height: 100%;
     }
 }
+
+@media screen and (max-width: 450px) {
+    section.chart {
+        width: 90%;
+    }
+} 

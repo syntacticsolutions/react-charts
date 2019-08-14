@@ -88,3 +88,11 @@ nav.responsive-toolbar {
         }
     }
 }
+
+@media screen and (max-width: 480px) {
+    nav.responsive-toolbar {
+        ul {
+            left: -300px;
+        }
+    }
+}

@@ -28,7 +28,7 @@ export default ({ children, anchor, visible, cb }) => {
         <div className="dropdown-container" ref={dropdownContainer}>
             { anchor }
             { visible && 
-                <div className="dropdown" ref={dropdown}>
+                <div className="dropdown" ref={dropdown} >
                     { children }
                 </div>
             }

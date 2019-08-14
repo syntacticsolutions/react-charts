@@ -10,6 +10,9 @@ export default ({ config }) => {
             trigger: 'item',
             triggerOn: 'mousemove'
         },
+        grid: {
+            left: '10%'
+        },
         series: [
             {
                 type: 'tree',
