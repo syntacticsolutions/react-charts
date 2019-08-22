@@ -8,7 +8,8 @@ export default function Dashboard () {
             type: 'Tree',
             height: '600px',
             width: '90%',
-            left: '10%'
+            left: '10%',
+            endpoint: '/api/data/repo_hierarchy'
         },
         {
             title: 'Total Open Source vs Enterprise Repos',
@@ -17,13 +18,15 @@ export default function Dashboard () {
             width: '45%',
             xAxis: 'date',
             yAxes: ['os_repo_count', 'ep_repo_count'],
-            yNames: ['Total Open Source Repos', 'Total Enterprise Repos']
+            yNames: ['Total Open Source Repos', 'Total Enterprise Repos'],
+            endpoint: '/api/data/amount_of_repos'
         },
         {
             title: 'EP Managed VS Total Devices',
             type: 'PercentageBar',
             height: '400px',
-            width: '45%'
+            width: '45%',
+            endpoint: '/api/data/device_percentage'
         }
     ]
 

@@ -16,12 +16,9 @@ export default ({ children, anchor, visible, cb }) => {
         let { clientWidth, style } = dropdown.current
         let anchorOffset = dropdownContainer.current.clientWidth
         style.left =  (clientWidth - anchorOffset) * -1 + 'px'
-        
-        if (visible) {
-            document.addEventListener('click', hideOnDocumentClick)
-        } else {
-            document.removeEventListener('click', hideOnDocumentClick)
-        }
+
+        visible ? document.addEventListener('click', hideOnDocumentClick)
+            : document.removeEventListener('click', hideOnDocumentClick)
     }, [visible, hideOnDocumentClick]);
 
     return (

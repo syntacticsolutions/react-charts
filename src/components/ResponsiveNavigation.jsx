@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from '@reach/router'
 
-function ResponsiveNavigation ({ navLinks, background, hoverBackground, linkColor, logo }) {
+function ResponsiveNavigation ({ navLinks, background, hoverBackground, linkColor, logo, children }) {
     const [ hoverIndex, setHoverIndex ] = useState(-1)
     const [ navOpen, setNavOpen ] = useState(false)
 
@@ -31,6 +31,7 @@ function ResponsiveNavigation ({ navLinks, background, hoverBackground, linkColo
                         </Link>
                     </li>    
                 )}
+                { children }
             </ul>
         </nav>
     )
