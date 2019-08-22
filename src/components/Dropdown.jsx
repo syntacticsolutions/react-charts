@@ -13,11 +13,11 @@ export default ({ children, anchor, visible, cb }) => {
     }, [visible, cb])
 
     useEffect(() => {
+        let { clientWidth, style } = dropdown.current
+        let anchorOffset = dropdownContainer.current.clientWidth
+        style.left =  (clientWidth - anchorOffset) * -1 + 'px'
+        
         if (visible) {
-            let { clientWidth, style } = dropdown.current
-            let anchorOffset = dropdownContainer.current.clientWidth
-            style.left =  (clientWidth - anchorOffset) * -1 + 'px'
-
             document.addEventListener('click', hideOnDocumentClick)
         } else {
             document.removeEventListener('click', hideOnDocumentClick)
@@ -27,11 +27,9 @@ export default ({ children, anchor, visible, cb }) => {
     return (
         <div className="dropdown-container" ref={dropdownContainer}>
             { anchor }
-            { visible && 
-                <div className="dropdown" ref={dropdown} >
-                    { children }
-                </div>
-            }
+            <div style={{ visibility: visible ? 'visible' : 'hidden' }} className="dropdown" ref={dropdown} >
+                { children }
+            </div>
         </div>
     )
 }

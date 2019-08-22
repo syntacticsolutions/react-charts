@@ -14,12 +14,6 @@ export default function Chart ({ children, config }) {
                 // TODO
             }
         },
-        'Save as Image': {
-            icon: 'ion-ios-image',
-            cb: () => {
-                // TODO
-            }
-        },
         'Export to CSV': {
             icon: 'ion-ios-filing',
             cb: () => {
@@ -27,6 +21,8 @@ export default function Chart ({ children, config }) {
             }
         }
     }
+
+
 
 
     return (

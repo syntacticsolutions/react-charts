@@ -1,8 +1,23 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React from 'react'
 import echarts from 'echarts'
+import EChart from './EChart'
 import Chart from './Chart'
 
-export default ({ config }) => {
+export default ({ config, data }) => {
+
+    data = require('../assets/fixtures/open_source_vs_ep_repos.json')
+
+    let { xAxis, yAxes } = data.reduce((accum, iter) => {
+        accum.xAxis.push(iter[config.xAxis])
+        config.yAxes.forEach((lineName, index) => {
+            if (!accum.yAxes[index]) {
+                accum.yAxes.push([iter[config.yAxes[index]]])
+            } else accum.yAxes[index].push(iter[config.yAxes[index]])
+        })
+        return accum
+    }, { xAxis: [], yAxes: []})
+
+    let colors = ['#2d8cf0', '#FFD60A', '#BF5AF2', '#FF443A', '#FF9F0C', '#31D158']
 
     let option = {
         tooltip: {
@@ -26,7 +41,7 @@ export default ({ config }) => {
         },
         xAxis: {
             type: 'category',
-            data: ['8/18','9/18','10/18','11/18','12/18','1/19','2/19','3/19','4/19','5/19','6/19',"7/19"],
+            data: xAxis,
             boundaryGap: false,
             splitLine: {
                 show: true,
@@ -72,19 +87,19 @@ export default ({ config }) => {
                 }
             }
         },
-        series: [{
-            name: 'Total Enterprise Repos',
+        series: yAxes.map((trendData, index) => ({
+            name: config.yNames[index],
             type: 'line',
             smooth: true,
             showSymbol: false,
             symbol: 'circle',
             symbolSize: 6,
-            data: ['1200', '1400', '1008', '1411', '1026', '1288', '1300', '800', '1100', '1000', '1118', '1322'].sort((a,b) => a - b ),
+            data: trendData,
             areaStyle: {
                 normal: {
                     color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
                         offset: 0,
-                        color: 'rgba(199, 237, 250,0.5)'
+                        color: colors[index]
                     }, {
                         offset: 1,
                         color: 'rgba(199, 237, 250,0.2)'
@@ -93,7 +108,7 @@ export default ({ config }) => {
             },
             itemStyle: {
                 normal: {
-                    color: '#f7b851'
+                    color: colors[index]
                 }
             },
             lineStyle: {
@@ -101,55 +116,12 @@ export default ({ config }) => {
                     width: 3
                 }
             }
-        }, {
-            name: 'Total Open Source Repos',
-            type: 'line',
-            smooth: true,
-            showSymbol: false,
-            symbol: 'circle',
-            symbolSize: 6,
-            data: [1200, 1400, 808, 811, 626, 488, 1600, 1100, 500, 300, 1998, 822].sort((a,b) => a - b ),
-            areaStyle: {
-                normal: {
-                    color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
-                        offset: 0,
-                        color: 'rgba(216, 244, 247,1)'
-                    }, {
-                        offset: 1,
-                        color: 'rgba(216, 244, 247,1)'
-                    }], false)
-                }
-            },
-            itemStyle: {
-                normal: {
-                    color: '#58c8da'
-                }
-            },
-            lineStyle: {
-                normal: {
-                    width: 3
-                }
-            }
-        }]
+        }))
     }
-
-    let chart = useRef(null)
-    let [chartEl, setChartEl] = useState(chart)
-
-    useEffect(() => {
-        if (!chartEl.current) {
-            chartEl.setOption(option)
-        }
-    }, [option, chartEl])
-
-    useEffect(() => {
-        let el = echarts.init(chart.current)
-        setChartEl(el)
-    }, [])
 
     return (
         <Chart config={config}>
-            <div className="chart" ref={chart}></div>
+            <EChart option={ option } config={ config }/>
         </Chart>
     )
 }

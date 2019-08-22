@@ -14,7 +14,10 @@ export default function Dashboard () {
             title: 'Total Open Source vs Enterprise Repos',
             type: 'Line',
             height: '400px',
-            width: '45%'
+            width: '45%',
+            xAxis: 'date',
+            yAxes: ['os_repo_count', 'ep_repo_count'],
+            yNames: ['Total Open Source Repos', 'Total Enterprise Repos']
         },
         {
             title: 'EP Managed VS Total Devices',

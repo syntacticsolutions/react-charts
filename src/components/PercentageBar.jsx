@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react'
-import echarts from 'echarts'
+import React from 'react'
 import Chart from './Chart'
+import EChart from './EChart'
 
 export default ({ config }) => {
 
@@ -55,23 +55,9 @@ export default ({ config }) => {
         ]
     }
 
-    let chart = useRef(null)
-    let [chartEl, setChartEl] = useState(chart)
-
-    useEffect(() => {
-        if (!chartEl.current) {
-            chartEl.setOption(option)
-        }
-    }, [option, chartEl])
-
-    useEffect(() => {
-        let el = echarts.init(chart.current)
-        setChartEl(el)
-    }, [])
-
     return (
         <Chart config={config}>
-            <div className="chart" ref={chart}></div>
+            <EChart option={ option } config={ config }/>
         </Chart>
     )
 }
