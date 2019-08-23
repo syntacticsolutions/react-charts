@@ -7,7 +7,7 @@ export default function Dashboard ({ dashboardName, axios, setConfig }) {
 
     useEffect(() => {
         axios.get(`/api/dashboard/${dashboardName}`)
-        .then(({data}) => {
+        .then(({ data }) => {
             dispatch({
                 type: 'SET_CONFIG',
                 payload: data
@@ -25,7 +25,8 @@ export default function Dashboard ({ dashboardName, axios, setConfig }) {
             data.forEach((conf, index) => {
                 getData(conf, index)
             })
-        })// eslint-disable-next-line
+        })
+        // eslint-disable-next-line
     }, [])
 
     return (

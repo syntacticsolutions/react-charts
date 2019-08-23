@@ -4,7 +4,6 @@ const initialState = {
 
 const mutations = {
     'SET_DATA': (state, [index, json]) => {
-        console.log(state.config)
         return {
             ...state,
             config: state.config.map((conf, ind) => {
