@@ -2,9 +2,9 @@ import React from 'react'
 import Chart from './Chart'
 import EChart from './EChart'
 
-export default ({ config, data }) => {
+export default ({ config, resize }) => {
 
-    data = require('../assets/fixtures/device_percentage.json')
+    const { data } = config
 
     const colors = ['#2d8cf0', '#FFD60A', '#BF5AF2', '#FF443A', '#FF9F0C', '#31D158']
 
@@ -48,8 +48,10 @@ export default ({ config, data }) => {
     }
 
     return (
-        <Chart config={config}>
-            <EChart option={ option } config={ config }/>
+        <Chart config={config} resize={resize}>
+            { data &&
+                <EChart option={ option } config={ config } resize={resize}/>
+            }
         </Chart>
     )
 }

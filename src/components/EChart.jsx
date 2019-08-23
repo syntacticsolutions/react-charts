@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import echarts from 'echarts'
 
-export default ({ option }) => {
+export default ({ option, resize }) => {
 
     let chart = useRef(null)
     let [chartEl, setChartEl] = useState(chart)
 
-    const resizeChart = useCallback(() => {
-        chartEl.resize()
-    }, [chartEl])
-
     useEffect(() => {
-        window.addEventListener('resize', resizeChart, { passive: true })
+        if (resize) {
+            chartEl.resize()
+        }
         if (!chartEl.current) {
             chartEl.setOption(option)
         }
@@ -19,10 +17,7 @@ export default ({ option }) => {
             // console.log(resizeChart)
             setChartEl(echarts.init(chart.current))
         }
-        return () => {
-            window.removeEventListener('resize', resizeChart, { passive: true })
-        }
-    }, [option, chartEl, resizeChart])
+    }, [option, chartEl, resize])
 
     return (
         <div className="chart" ref={chart}></div>

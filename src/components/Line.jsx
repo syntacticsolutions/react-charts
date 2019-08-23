@@ -3,9 +3,9 @@ import echarts from 'echarts'
 import EChart from './EChart'
 import Chart from './Chart'
 
-export default ({ config, data }) => {
+export default ({ config, resize }) => {
 
-    data = require('../assets/fixtures/open_source_vs_ep_repos.json')
+    const { data } = config
 
     let { xAxis, yAxes } = data.reduce((accum, iter) => {
         accum.xAxis.push(iter[config.xAxis])
@@ -120,8 +120,10 @@ export default ({ config, data }) => {
     }
 
     return (
-        <Chart config={config}>
-            <EChart option={ option } config={ config }/>
-        </Chart>
+    <Chart config={config} resize={resize}>
+        { data &&
+            <EChart option={ option } config={ config } resize={resize}/>
+        }
+    </Chart>
     )
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import Chart from './Chart'
 import EChart from './EChart'
-const data = require('../assets/fixtures/repo_hierarchy.json')
 
-export default ({ config }) => {
+export default ({ config, resize }) => {
+    const { data } = config
 
     let option = {
         tooltip: {
@@ -53,9 +53,9 @@ export default ({ config }) => {
     }
 
     return (
-        <Chart config={config}>
-            { config.data &&
-                <EChart option={ option } config={ config }/>
+        <Chart config={config} resize={resize}>
+            { data &&
+                <EChart option={ option } config={ config } resize={resize}/>
             }
         </Chart>
     )

@@ -4,7 +4,7 @@ section.chart {
     padding-bottom: 15px;
     margin-left: 5px;
     margin-right: 5px;
-    min-width: 370px;
+    min-width: 350px;
     margin-bottom: 20px;
     float: left;
 
@@ -33,9 +33,3 @@ section.chart {
         height: 100%;
     }
 }
-
-@media screen and (max-width: 450px) {
-    section.chart {
-        width: 90%;
-    }
-} 

@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import OptionsDropdown from './OptionsDropdown'
 
-export default function Chart ({ children, config }) {
+export default function Chart ({ children, config, resize }) {
 
-    const { height, width } = config
+    const { height, width } =  { ...config }
 
     const [optionsVisible, setOptionsVisible] = useState(false)
 
@@ -21,9 +21,6 @@ export default function Chart ({ children, config }) {
             }
         }
     }
-
-
-
 
     return (
         <section className="chart" style={{ height, width }}>
