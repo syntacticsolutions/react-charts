@@ -54,7 +54,9 @@ export default ({ config }) => {
 
     return (
         <Chart config={config}>
-            <EChart option={ option } config={ config }/>
+            { config.data &&
+                <EChart option={ option } config={ config }/>
+            }
         </Chart>
     )
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import echarts from 'echarts'
 
-export default ({ option, config }) => {
+export default ({ option }) => {
 
     let chart = useRef(null)
     let [chartEl, setChartEl] = useState(chart)

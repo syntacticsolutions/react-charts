@@ -4,14 +4,12 @@ import { Router } from '@reach/router'
 import Home from './pages/Home.jsx'
 import ResponsiveNavigation from './components/ResponsiveNavigation'
 import Dashboard from './pages/Dashboard.jsx'
-import axios from 'axios'
 import './assets/scss/base.scss'
 import './App.css';
+import axios from 'axios'
 if (process.env.NODE_ENV === 'development') {
   require('./assets/mock-endpoints/mocks')
 }
-
-window.axios = axios
 
 function App() {
   const navLinks = [
@@ -38,7 +36,7 @@ function App() {
       </ResponsiveNavigation>
 			<Router>
 				<Home path="/" />
-				<Dashboard path="/analytics" />
+				<Dashboard axios={axios} path="/analytics/:dashboardName" />
 			</Router>
     </div>
   );

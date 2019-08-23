@@ -1,43 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-export default function Dashboard () {
+export default function Dashboard ({ dashboardName, axios, setConfig }) {
+    const config = useSelector(({ DashboardReducer }) => DashboardReducer.config)
+    const dispatch = useDispatch()
 
-    let config = [
-        {
-            title: 'Repo Hierarchy',
-            type: 'Tree',
-            height: '600px',
-            width: '90%',
-            left: '10%',
-            endpoint: '/api/data/repo_hierarchy'
-        },
-        {
-            title: 'Total Open Source vs Enterprise Repos',
-            type: 'Line',
-            height: '400px',
-            width: '45%',
-            xAxis: 'date',
-            yAxes: ['os_repo_count', 'ep_repo_count'],
-            yNames: ['Total Open Source Repos', 'Total Enterprise Repos'],
-            endpoint: '/api/data/amount_of_repos'
-        },
-        {
-            title: 'EP Managed VS Total Devices',
-            type: 'PercentageBar',
-            height: '400px',
-            width: '45%',
-            endpoint: '/api/data/device_percentage'
-        }
-    ]
+    useEffect(() => {
+        axios.get(`/api/dashboard/${dashboardName}`)
+        .then(({data}) => {
+            dispatch({
+                type: 'SET_CONFIG',
+                payload: data
+            })
+            const getData = ({ endpoint }, index) => {
+                axios.get(endpoint)
+                .then(({ data }) => {
+                    dispatch({
+                        type: 'SET_DATA',
+                        payload: [index, data]
+                    })
+                })
+            }
+
+            data.forEach((conf, index) => {
+                getData(conf, index)
+            })
+        })// eslint-disable-next-line
+    }, [])
 
     return (
-    <section className="dashboard">
-        {
-            config && config.map((conf, idx) => {
-                const component = require(`../components/${conf.type}.jsx`).default
-                return React.createElement(component, { config: conf, key: idx })
-            })
-        }
-    </section>
+        <section className="dashboard">
+            {
+                config && config.map((conf, idx) => {
+                    const component = require(`../components/${conf.type}.jsx`).default
+                    return conf.data ? React.createElement(component, { config: conf, key: idx }) : ''
+                })
+            }
+        </section>
     )
 }
