@@ -3,7 +3,7 @@
         "title": "Repo Hierarchy",
         "type": "Tree",
         "height": "600px",
-        "width": "90%",
+        "width": "99%",
         "left": "10%",
         "endpoint": "/api/data/repo_hierarchy"
     },
@@ -11,7 +11,7 @@
         "title": "Total Open Source vs Enterprise Repos",
         "type": "Line",
         "height": "400px",
-        "width": "45%",
+        "width": "49%",
         "xAxis": "date",
         "yAxes": ["os_repo_count", "ep_repo_count"],
         "yNames": ["Total Open Source Repos", "Total Enterprise Repos"],
@@ -21,7 +21,7 @@
         "title": "EP Managed VS Total Devices",
         "type": "PercentageBar",
         "height": "400px",
-        "width": "45%",
+        "width": "49%",
         "endpoint": "/api/data/device_percentage"
     }
 ]

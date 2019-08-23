@@ -4,7 +4,6 @@ export default ({ children, anchor, visible, cb }) => {
     let dropdown = useRef(null)
     let dropdownContainer = useRef(null)
 
-
     const hideOnDocumentClick = useCallback(() => {
         if (visible) {
             cb()

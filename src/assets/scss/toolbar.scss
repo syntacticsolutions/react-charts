@@ -54,6 +54,11 @@ nav.responsive-toolbar {
 
 @media screen and (max-width: 759px) {
     nav.responsive-toolbar {
+
+        & ~ * {
+            margin-left: 60px;
+        }
+
         ul {
             height: 100%;
             width: 300px;
@@ -91,6 +96,9 @@ nav.responsive-toolbar {
 
 @media screen and (max-width: 480px) {
     nav.responsive-toolbar {
+        & ~ * {
+            margin-left: 0;
+        }
         ul {
             left: -300px;
         }
