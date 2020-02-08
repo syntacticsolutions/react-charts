@@ -13,8 +13,6 @@ export default ({ config, resize }) => {
     
         legend: {
             x: 'center',
-            // y: "bottom",
-    
         },
         tooltip: {
             show: true,
@@ -23,7 +21,7 @@ export default ({ config, resize }) => {
         },
         polar: {
             center: ['50%', '50%'],
-            radius: '150%' //图形大小
+            radius: '150%'
         },
         angleAxis: {
             show: false,
@@ -40,9 +38,8 @@ export default ({ config, resize }) => {
             type: "bar",
             name: obj.title,
             coordinateSystem: "polar",
-            barWidth: 20, //宽度
+            barWidth: 20,
             barCategoryGap: "30%",
-            // data: ["76.25","47.09","22.09"],
             data: [obj.value]
         }))
     }

@@ -1,5 +1,5 @@
 const initialState = {
-    config: []
+    config: [],
 }
 
 const mutations = {
@@ -16,6 +16,12 @@ const mutations = {
         return {
             ...state,
             config
+        }
+    },
+    'SET_DASHBOARD_LIST': (state, dashboardList) => {
+        return {
+            ...state,
+            dashboardList
         }
     }
 }

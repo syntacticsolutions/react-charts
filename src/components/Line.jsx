@@ -5,9 +5,10 @@ import Chart from './Chart'
 
 export default ({ config, resize }) => {
 
-    const { data } = config
+    const { data } = config // destructuring a property value from an object
 
     let { xAxis, yAxes } = data.reduce((accum, iter) => {
+        // 
         accum.xAxis.push(iter[config.xAxis])
         config.yAxes.forEach((lineName, index) => {
             if (!accum.yAxes[index]) {
@@ -33,11 +34,6 @@ export default ({ config, resize }) => {
                 color: '#7588E4',
             },
             extraCssText: 'box-shadow: 0 0 5px rgba(0,0,0,0.3)'
-        },
-        legend: {
-            right: 20,
-            orient: 'vertical',
-            data: ['Total Enterprise Repos','Total Open Source Repos']
         },
         xAxis: {
             type: 'category',

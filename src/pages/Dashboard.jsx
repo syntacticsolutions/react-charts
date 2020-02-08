@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-export default function Dashboard ({ dashboardName, axios, setConfig }) {
+export default function Dashboard ({ dashboardName, axios }) {
     const config = useSelector(({ DashboardReducer }) => DashboardReducer.config)
     const dispatch = useDispatch()
     let [resize, setResize] = useState(false)
@@ -11,13 +11,12 @@ export default function Dashboard ({ dashboardName, axios, setConfig }) {
         if (timer) {
             window.cancelAnimationFrame(timer);
         }
-        // Setup the new requestAnimationFrame()
+        // Debounce the window resize event
         setTimer(window.requestAnimationFrame(function () {
             setResize(true)
             setTimeout(() => {
                 setResize(false)
             }, 0)
-    
         }));
         
     },[setResize, timer])
@@ -30,6 +29,7 @@ export default function Dashboard ({ dashboardName, axios, setConfig }) {
                 type: 'SET_CONFIG',
                 payload: data
             })
+            
             const getData = ({ endpoint }, index) => {
                 axios.get(endpoint)
                 .then(({ data }) => {

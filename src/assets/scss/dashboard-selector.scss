@@ -1,0 +1,39 @@
+.dashboard-selector {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(315px, 1fr));
+    margin: 20px;
+
+    .dashboard-card {
+        height: 225px;
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        text-decoration: none;
+
+        &:hover {
+            background: #f9f9f9;
+            box-shadow: 2px 2px 2px #888;
+        }
+
+        .dash-title {
+            border-bottom: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            color: #444;
+            padding: 15px;
+            margin: 0;
+        }
+
+        .dash-description {
+            color: #777;
+            text-align: left;
+            padding: 15px;
+            margin: 0;
+        }
+    }
+}

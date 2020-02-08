@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import { Router } from '@reach/router'
-import Home from './pages/Home.jsx'
+import Home from './pages/Home'
 import ResponsiveNavigation from './components/ResponsiveNavigation'
-import Dashboard from './pages/Dashboard.jsx'
+import Dashboard from './pages/Dashboard'
+import DashboardSelector from './pages/DashboardSelector'
 import './assets/scss/base.scss'
 import './App.css';
 import axios from 'axios'
@@ -37,6 +38,7 @@ function App() {
 			<Router>
 				<Home path="/" />
 				<Dashboard axios={axios} path="/analytics/:dashboardName" />
+        <DashboardSelector axios={axios} path="/analytics" />
 			</Router>
     </div>
   );
